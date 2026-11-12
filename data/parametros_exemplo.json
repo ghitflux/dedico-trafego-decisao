@@ -1,0 +1,44 @@
+{
+  "_aviso": "VALORES FICTÍCIOS. Este arquivo existe só para o código rodar e os testes passarem. Nenhum número aqui descreve um negócio real, e os resultados publicados em reports/ não foram gerados com ele.",
+  "_unidades": "Valores em uma moeda qualquer; custos de entrega em dólar. Na saída tudo é dividido pela meta de CAC (meta = 100).",
+  "preco": 60.0,
+  "taxa_cartao_pct": 0.04,
+  "taxa_cartao_fixa": 0.5,
+  "taxa_pix_pct": 0.01,
+  "custo_venda_usd": 0.6,
+  "custo_demo_perdida_usd": 0.3,
+  "fator_cambio": 1.05,
+  "meta_cac": 45.0,
+  "verba_teste_dia": 450.0,
+  "verba_canal_dia": 240.0,
+  "criativos_no_teste": 8,
+  "dias_teste": 14,
+  "entradas": {
+    "cpc": {"base": 1.5, "baixo": 1.0, "alto": 3.5, "origem": "premissa"},
+    "conv_clique": {"base": 0.03, "baixo": 0.015, "alto": 0.045, "origem": "premissa"},
+    "conv_demo": {"base": 0.2, "baixo": 0.1, "alto": 0.35, "origem": "premissa"},
+    "extras": {"base": 6.0, "baixo": 0.0, "alto": 6.0, "origem": "premissa"},
+    "imposto": {"base": 0.08, "baixo": 0.08, "alto": 0.16, "origem": "premissa"},
+    "reembolso": {"base": 0.0, "baixo": 0.0, "alto": 0.06, "origem": "premissa"},
+    "fracao_pix": {"base": 0.0, "baixo": 0.0, "alto": 0.6, "origem": "premissa"},
+    "cambio": {"base": 5.5, "baixo": 5.0, "alto": 6.0, "origem": "medido"}
+  },
+  "cenarios": {
+    "Ótimo": [1.0, 0.045],
+    "Bom": [1.5, 0.03],
+    "Médio": [2.25, 0.0225],
+    "Ruim": [3.0, 0.015]
+  },
+  "conferencia": [
+    {
+      "conta": "Margem sem extras, só cartão, sem demonstração perdida",
+      "esperado": 49.0,
+      "entradas": {"extras": 0.0, "conv_demo": 1.0, "imposto": 0.08, "reembolso": 0.0, "fracao_pix": 0.0, "cambio": 5.5}
+    },
+    {
+      "conta": "Margem com extras e demonstrações perdidas",
+      "esperado": 47.68,
+      "entradas": {"extras": 6.0, "conv_demo": 0.2, "imposto": 0.08, "reembolso": 0.0, "fracao_pix": 0.0, "cambio": 5.5}
+    }
+  ]
+}

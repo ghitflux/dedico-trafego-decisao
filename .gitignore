@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.egg-info/
+
+# Ambiente (uv usa .venv; o uv.lock é versionado de propósito)
+.venv/
+
+# Parâmetros e levantamentos reais: nunca versionados
+data/privado/
+
+# Saída de rodadas com os parâmetros fictícios de exemplo
+reports/exemplo/
+
+# Dados brutos e bancos locais: nunca versionados
+data/raw/
+*.duckdb
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testes
+.pytest_cache/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Segredos
+.env
+.env.*

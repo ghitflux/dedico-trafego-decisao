@@ -1,0 +1,1052 @@
+{
+  "escala": "Valores em moeda divididos pela meta de CAC e multiplicados por 100 (meta de CAC = 100).",
+  "parametros": "privado",
+  "precos": {
+    "concorrentes com preço": 15,
+    "cobram menos": 6,
+    "cobram mais": 9,
+    "percentil do preço": 0.4,
+    "preço (mediana do mercado = 100)": 83,
+    "p10 do mercado": 55,
+    "p25 do mercado": 66,
+    "p75 do mercado": 148,
+    "p90 do mercado": 287
+  },
+  "conferencia_do_modelo": {
+    "Margem sem extras, só cartão, sem demonstração perdida": {
+      "desvio do modelo": -0.0002512389
+    },
+    "Margem com extras e demonstrações perdidas": {
+      "desvio do modelo": -0.0072734445
+    }
+  },
+  "cac_de_empate": 106.08720855000001,
+  "cenarios_de_referencia": {
+    "Ótimo": {
+      "CAC (meta = 100)": 80.0,
+      "CAC ÷ CAC de empate": 0.7540965692,
+      "lucro por venda (meta = 100)": 26.08720855,
+      "custo por clique (piso da faixa = 100)": 100.0,
+      "conversão (teto da faixa = 100)": 100.0
+    },
+    "Bom": {
+      "CAC (meta = 100)": 125.0,
+      "CAC ÷ CAC de empate": 1.1782758893,
+      "lucro por venda (meta = 100)": -18.91279145,
+      "custo por clique (piso da faixa = 100)": 125.0,
+      "conversão (teto da faixa = 100)": 80.0
+    },
+    "Médio": {
+      "CAC (meta = 100)": 250.0,
+      "CAC ÷ CAC de empate": 2.3565517786,
+      "lucro por venda (meta = 100)": -143.91279145,
+      "custo por clique (piso da faixa = 100)": 187.5,
+      "conversão (teto da faixa = 100)": 60.0
+    },
+    "Ruim": {
+      "CAC (meta = 100)": 500.0,
+      "CAC ÷ CAC de empate": 4.7131035573,
+      "lucro por venda (meta = 100)": -393.91279145,
+      "custo por clique (piso da faixa = 100)": 250.0,
+      "conversão (teto da faixa = 100)": 40.0
+    }
+  },
+  "sorteio": {
+    "cenarios": 100000,
+    "fracao_que_se_paga": 0.00488,
+    "fracao_com_cac_na_meta": 0.01971,
+    "cac_mediano": 236.1198722262653,
+    "sobra_mediana": 78.95950698300308,
+    "sobra_p5": 33.337860899710066,
+    "sobra_p95": 103.45797388884107,
+    "lucro_mediano": -160.7642512402053
+  },
+  "fronteira": {
+    "conversao_minima": 40.0,
+    "cpc_maximo": 312.5,
+    "inclinacao_margem_de_referencia": 1.3260901068750002,
+    "inclinacao_margem_mediana": 0.9869938372875385
+  },
+  "sensibilidade": {
+    "lucro_base": -18.912791449999986,
+    "tabela": {
+      "Custo por clique": {
+        "origem": "publicado",
+        "lucro no pior extremo": -206.41279145,
+        "lucro no melhor extremo": 6.08720855,
+        "amplitude": 212.5,
+        "amplitude ÷ maior amplitude": 1.0
+      },
+      "Conversão de clique em compra": {
+        "origem": "premissa",
+        "lucro no pior extremo": -143.91279145,
+        "lucro no melhor extremo": 6.08720855,
+        "amplitude": 150.0,
+        "amplitude ÷ maior amplitude": 0.7058823529
+      },
+      "Demonstrações que viram compra": {
+        "origem": "premissa",
+        "lucro no pior extremo": -85.37658885,
+        "lucro no melhor extremo": -5.62003197,
+        "amplitude": 79.75655688,
+        "amplitude ÷ maior amplitude": 0.3753249736
+      },
+      "Receita de extras por pedido": {
+        "origem": "premissa",
+        "lucro no pior extremo": -52.44151645,
+        "lucro no melhor extremo": -18.91279145,
+        "amplitude": 33.528725,
+        "amplitude ÷ maior amplitude": 0.1577822353
+      },
+      "Imposto sobre a receita": {
+        "origem": "publicado",
+        "lucro no pior extremo": -34.27904145,
+        "lucro no melhor extremo": -18.91279145,
+        "amplitude": 15.36625,
+        "amplitude ÷ maior amplitude": 0.0723117647
+      },
+      "Pedidos reembolsados": {
+        "origem": "premissa",
+        "lucro no pior extremo": -31.07639145,
+        "lucro no melhor extremo": -18.91279145,
+        "amplitude": 12.1636,
+        "amplitude ÷ maior amplitude": 0.0572404706
+      },
+      "Dólar efetivo": {
+        "origem": "medido",
+        "lucro no pior extremo": -19.3166195083,
+        "lucro no melhor extremo": -14.7090298917,
+        "amplitude": 4.6075896167,
+        "amplitude ÷ maior amplitude": 0.0216827747
+      },
+      "Pedidos pagos por Pix": {
+        "origem": "premissa",
+        "lucro no pior extremo": -18.91279145,
+        "lucro no melhor extremo": -14.37749145,
+        "amplitude": 4.5353,
+        "amplitude ÷ maior amplitude": 0.0213425882
+      }
+    }
+  },
+  "desenho_do_teste": {
+    "dias de teste": 14,
+    "vendas esperadas por dia e por criativo, na meta": 0.8333333333333334,
+    "vendas esperadas por dia na conta, na meta": 12.5
+  },
+  "precisao_do_cac": {
+    "3": {
+      "vendas esperadas": 37.5,
+      "CAC observado mínimo": 78.125,
+      "CAC observado máximo": 133.9285714286
+    },
+    "5": {
+      "vendas esperadas": 62.5,
+      "CAC observado mínimo": 82.2368421053,
+      "CAC observado máximo": 125.0
+    },
+    "7": {
+      "vendas esperadas": 87.5,
+      "CAC observado mínimo": 84.9514563107,
+      "CAC observado máximo": 121.5277777778
+    },
+    "14": {
+      "vendas esperadas": 175.0,
+      "CAC observado mínimo": 88.8324873096,
+      "CAC observado máximo": 113.6363636364
+    }
+  },
+  "corte_prob_desligar": {
+    "50": {
+      "Limiar simples": 0.14925,
+      "Limiar com piso de gasto": 0.02065,
+      "Teste estatístico": 0.0088
+    },
+    "60": {
+      "Limiar simples": 0.2337,
+      "Limiar com piso de gasto": 0.05595,
+      "Teste estatístico": 0.02235
+    },
+    "70": {
+      "Limiar simples": 0.3318,
+      "Limiar com piso de gasto": 0.12055,
+      "Teste estatístico": 0.0481
+    },
+    "80": {
+      "Limiar simples": 0.41985,
+      "Limiar com piso de gasto": 0.19625,
+      "Teste estatístico": 0.0767
+    },
+    "90": {
+      "Limiar simples": 0.5024,
+      "Limiar com piso de gasto": 0.2845,
+      "Teste estatístico": 0.1223
+    },
+    "100": {
+      "Limiar simples": 0.58585,
+      "Limiar com piso de gasto": 0.3812,
+      "Teste estatístico": 0.18585
+    },
+    "110": {
+      "Limiar simples": 0.6557,
+      "Limiar com piso de gasto": 0.46895,
+      "Teste estatístico": 0.2418
+    },
+    "125": {
+      "Limiar simples": 0.7454,
+      "Limiar com piso de gasto": 0.59295,
+      "Teste estatístico": 0.3555
+    },
+    "150": {
+      "Limiar simples": 0.8428,
+      "Limiar com piso de gasto": 0.7469,
+      "Teste estatístico": 0.5097
+    },
+    "175": {
+      "Limiar simples": 0.9098,
+      "Limiar com piso de gasto": 0.85335,
+      "Teste estatístico": 0.65575
+    },
+    "200": {
+      "Limiar simples": 0.9478,
+      "Limiar com piso de gasto": 0.9092,
+      "Teste estatístico": 0.759
+    },
+    "250": {
+      "Limiar simples": 0.9797,
+      "Limiar com piso de gasto": 0.9653,
+      "Teste estatístico": 0.88195
+    },
+    "300": {
+      "Limiar simples": 0.99235,
+      "Limiar com piso de gasto": 0.987,
+      "Teste estatístico": 0.94425
+    },
+    "400": {
+      "Limiar simples": 0.9982,
+      "Limiar com piso de gasto": 0.9971,
+      "Teste estatístico": 0.9835
+    }
+  },
+  "corte_gasto_medio": {
+    "50": {
+      "Limiar simples": 1020.9208333333,
+      "Limiar com piso de gasto": 1150.6041666667,
+      "Teste estatístico": 1158.9
+    },
+    "60": {
+      "Limiar simples": 941.3958333333,
+      "Limiar com piso de gasto": 1124.3458333333,
+      "Teste estatístico": 1147.6416666667
+    },
+    "70": {
+      "Limiar simples": 851.6666666667,
+      "Limiar com piso de gasto": 1078.2458333333,
+      "Teste estatístico": 1128.0541666667
+    },
+    "80": {
+      "Limiar simples": 775.425,
+      "Limiar com piso de gasto": 1028.9375,
+      "Teste estatístico": 1109.025
+    },
+    "90": {
+      "Limiar simples": 705.3375,
+      "Limiar com piso de gasto": 969.2875,
+      "Teste estatístico": 1079.2041666667
+    },
+    "100": {
+      "Limiar simples": 634.4583333333,
+      "Limiar com piso de gasto": 901.5083333333,
+      "Teste estatístico": 1038.0333333333
+    },
+    "110": {
+      "Limiar simples": 577.9791666667,
+      "Limiar com piso de gasto": 844.7208333333,
+      "Teste estatístico": 1006.3416666667
+    },
+    "125": {
+      "Limiar simples": 501.8125,
+      "Limiar com piso de gasto": 754.65,
+      "Teste estatístico": 936.2916666667
+    },
+    "150": {
+      "Limiar simples": 422.1458333333,
+      "Limiar com piso de gasto": 644.5875,
+      "Teste estatístico": 846.0291666667
+    },
+    "175": {
+      "Limiar simples": 359.7666666667,
+      "Limiar com piso de gasto": 553.5541666667,
+      "Teste estatístico": 751.3333333333
+    },
+    "200": {
+      "Limiar simples": 320.1458333333,
+      "Limiar com piso de gasto": 498.8208333333,
+      "Teste estatístico": 678.875
+    },
+    "250": {
+      "Limiar simples": 278.3458333333,
+      "Limiar com piso de gasto": 424.5541666667,
+      "Teste estatístico": 568.5041666667
+    },
+    "300": {
+      "Limiar simples": 258.4541666667,
+      "Limiar com piso de gasto": 382.1958333333,
+      "Teste estatístico": 489.7041666667
+    },
+    "400": {
+      "Limiar simples": 244.4958333333,
+      "Limiar com piso de gasto": 344.9708333333,
+      "Teste estatístico": 414.025
+    }
+  },
+  "corte_prob_desligar_dispersao_2": {
+    "50": {
+      "Limiar simples": 0.2502,
+      "Limiar com piso de gasto": 0.0809,
+      "Teste estatístico": 0.04165
+    },
+    "60": {
+      "Limiar simples": 0.3571,
+      "Limiar com piso de gasto": 0.16445,
+      "Teste estatístico": 0.0871
+    },
+    "70": {
+      "Limiar simples": 0.4481,
+      "Limiar com piso de gasto": 0.25515,
+      "Teste estatístico": 0.14255
+    },
+    "80": {
+      "Limiar simples": 0.52995,
+      "Limiar com piso de gasto": 0.3555,
+      "Teste estatístico": 0.20795
+    },
+    "90": {
+      "Limiar simples": 0.6017,
+      "Limiar com piso de gasto": 0.44435,
+      "Teste estatístico": 0.28025
+    },
+    "100": {
+      "Limiar simples": 0.6687,
+      "Limiar com piso de gasto": 0.526,
+      "Teste estatístico": 0.35725
+    },
+    "110": {
+      "Limiar simples": 0.71765,
+      "Limiar com piso de gasto": 0.59745,
+      "Teste estatístico": 0.4245
+    },
+    "125": {
+      "Limiar simples": 0.7836,
+      "Limiar com piso de gasto": 0.6893,
+      "Teste estatístico": 0.52275
+    },
+    "150": {
+      "Limiar simples": 0.85375,
+      "Limiar com piso de gasto": 0.7898,
+      "Teste estatístico": 0.65165
+    },
+    "175": {
+      "Limiar simples": 0.8999,
+      "Limiar com piso de gasto": 0.85425,
+      "Teste estatístico": 0.73865
+    },
+    "200": {
+      "Limiar simples": 0.92675,
+      "Limiar com piso de gasto": 0.89855,
+      "Teste estatístico": 0.80585
+    },
+    "250": {
+      "Limiar simples": 0.96265,
+      "Limiar com piso de gasto": 0.9465,
+      "Teste estatístico": 0.88395
+    },
+    "300": {
+      "Limiar simples": 0.9755,
+      "Limiar com piso de gasto": 0.96595,
+      "Teste estatístico": 0.9253
+    },
+    "400": {
+      "Limiar simples": 0.9887,
+      "Limiar com piso de gasto": 0.98515,
+      "Teste estatístico": 0.96815
+    }
+  },
+  "corte_sensibilidade_k": {
+    "1.5": {
+      "1.25": 0.67625,
+      "1.5": 0.60575,
+      "2.0": 0.38765,
+      "3.0": 0.25485
+    },
+    "2.0": {
+      "1.25": 0.6615,
+      "1.5": 0.58585,
+      "2.0": 0.3576,
+      "3.0": 0.1802
+    },
+    "3.0": {
+      "1.25": 0.6595,
+      "1.5": 0.5826,
+      "2.0": 0.34595,
+      "3.0": 0.16175
+    },
+    "4.0": {
+      "1.25": 0.6593,
+      "1.5": 0.58165,
+      "2.0": 0.3446,
+      "3.0": 0.15495
+    }
+  },
+  "corte_sensibilidade_piso": {
+    "0.0": {
+      "desliga criativo na meta": 0.58585,
+      "desliga criativo com o dobro da meta": 0.9478,
+      "gasto médio no criativo com o dobro da meta (meta = 100)": 320.1458333333
+    },
+    "2.0": {
+      "desliga criativo na meta": 0.48115,
+      "desliga criativo com o dobro da meta": 0.93105,
+      "gasto médio no criativo com o dobro da meta (meta = 100)": 389.275
+    },
+    "3.0": {
+      "desliga criativo na meta": 0.45005,
+      "desliga criativo com o dobro da meta": 0.9249,
+      "gasto médio no criativo com o dobro da meta (meta = 100)": 430.1125
+    },
+    "4.0": {
+      "desliga criativo na meta": 0.3812,
+      "desliga criativo com o dobro da meta": 0.9092,
+      "gasto médio no criativo com o dobro da meta (meta = 100)": 498.8208333333
+    },
+    "6.0": {
+      "desliga criativo na meta": 0.30575,
+      "desliga criativo com o dobro da meta": 0.8888,
+      "gasto médio no criativo com o dobro da meta (meta = 100)": 633.5166666667
+    },
+    "8.0": {
+      "desliga criativo na meta": 0.2665,
+      "desliga criativo com o dobro da meta": 0.8742,
+      "gasto médio no criativo com o dobro da meta (meta = 100)": 722.6583333333
+    }
+  },
+  "escala_prob_liberar": {
+    "60": {
+      "Dias seguidos na meta (n = 5)": 0.9979,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 1.0
+    },
+    "65": {
+      "Dias seguidos na meta (n = 5)": 0.99205,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 1.0
+    },
+    "70": {
+      "Dias seguidos na meta (n = 5)": 0.96425,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 1.0
+    },
+    "75": {
+      "Dias seguidos na meta (n = 5)": 0.89625,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 0.99995
+    },
+    "80": {
+      "Dias seguidos na meta (n = 5)": 0.7648,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 0.99885
+    },
+    "85": {
+      "Dias seguidos na meta (n = 5)": 0.59495,
+      "Qualquer janela de n dias na meta (n = 5)": 0.99955,
+      "Período inteiro na meta": 0.9867
+    },
+    "90": {
+      "Dias seguidos na meta (n = 5)": 0.41535,
+      "Qualquer janela de n dias na meta (n = 5)": 0.99555,
+      "Período inteiro na meta": 0.9267
+    },
+    "95": {
+      "Dias seguidos na meta (n = 5)": 0.252,
+      "Qualquer janela de n dias na meta (n = 5)": 0.9773,
+      "Período inteiro na meta": 0.75635
+    },
+    "100": {
+      "Dias seguidos na meta (n = 5)": 0.14415,
+      "Qualquer janela de n dias na meta (n = 5)": 0.9252,
+      "Período inteiro na meta": 0.51035
+    },
+    "105": {
+      "Dias seguidos na meta (n = 5)": 0.0713,
+      "Qualquer janela de n dias na meta (n = 5)": 0.8222,
+      "Período inteiro na meta": 0.26715
+    },
+    "110": {
+      "Dias seguidos na meta (n = 5)": 0.0374,
+      "Qualquer janela de n dias na meta (n = 5)": 0.6641,
+      "Período inteiro na meta": 0.11095
+    },
+    "115": {
+      "Dias seguidos na meta (n = 5)": 0.0169,
+      "Qualquer janela de n dias na meta (n = 5)": 0.4908,
+      "Período inteiro na meta": 0.0386
+    },
+    "120": {
+      "Dias seguidos na meta (n = 5)": 0.00765,
+      "Qualquer janela de n dias na meta (n = 5)": 0.3337,
+      "Período inteiro na meta": 0.0094
+    },
+    "125": {
+      "Dias seguidos na meta (n = 5)": 0.00295,
+      "Qualquer janela de n dias na meta (n = 5)": 0.2053,
+      "Período inteiro na meta": 0.0021
+    },
+    "130": {
+      "Dias seguidos na meta (n = 5)": 0.0019,
+      "Qualquer janela de n dias na meta (n = 5)": 0.11965,
+      "Período inteiro na meta": 0.0007
+    },
+    "135": {
+      "Dias seguidos na meta (n = 5)": 0.0004,
+      "Qualquer janela de n dias na meta (n = 5)": 0.0671,
+      "Período inteiro na meta": 0.00015
+    },
+    "140": {
+      "Dias seguidos na meta (n = 5)": 0.0001,
+      "Qualquer janela de n dias na meta (n = 5)": 0.03565,
+      "Período inteiro na meta": 5e-05
+    },
+    "145": {
+      "Dias seguidos na meta (n = 5)": 5e-05,
+      "Qualquer janela de n dias na meta (n = 5)": 0.0176,
+      "Período inteiro na meta": 0.0
+    },
+    "150": {
+      "Dias seguidos na meta (n = 5)": 0.0001,
+      "Qualquer janela de n dias na meta (n = 5)": 0.0089,
+      "Período inteiro na meta": 0.0
+    }
+  },
+  "escala_prob_liberar_dispersao_2": {
+    "60": {
+      "Dias seguidos na meta (n = 5)": 0.9742,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 1.0
+    },
+    "65": {
+      "Dias seguidos na meta (n = 5)": 0.9241,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 1.0
+    },
+    "70": {
+      "Dias seguidos na meta (n = 5)": 0.83265,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 0.9999
+    },
+    "75": {
+      "Dias seguidos na meta (n = 5)": 0.70745,
+      "Qualquer janela de n dias na meta (n = 5)": 0.99995,
+      "Período inteiro na meta": 0.9983
+    },
+    "80": {
+      "Dias seguidos na meta (n = 5)": 0.54635,
+      "Qualquer janela de n dias na meta (n = 5)": 0.99945,
+      "Período inteiro na meta": 0.9853
+    },
+    "85": {
+      "Dias seguidos na meta (n = 5)": 0.4025,
+      "Qualquer janela de n dias na meta (n = 5)": 0.99695,
+      "Período inteiro na meta": 0.94255
+    },
+    "90": {
+      "Dias seguidos na meta (n = 5)": 0.2824,
+      "Qualquer janela de n dias na meta (n = 5)": 0.98805,
+      "Período inteiro na meta": 0.83735
+    },
+    "95": {
+      "Dias seguidos na meta (n = 5)": 0.1827,
+      "Qualquer janela de n dias na meta (n = 5)": 0.9639,
+      "Período inteiro na meta": 0.6836
+    },
+    "100": {
+      "Dias seguidos na meta (n = 5)": 0.1219,
+      "Qualquer janela de n dias na meta (n = 5)": 0.9158,
+      "Período inteiro na meta": 0.4964
+    },
+    "105": {
+      "Dias seguidos na meta (n = 5)": 0.0709,
+      "Qualquer janela de n dias na meta (n = 5)": 0.84185,
+      "Período inteiro na meta": 0.3233
+    },
+    "110": {
+      "Dias seguidos na meta (n = 5)": 0.0464,
+      "Qualquer janela de n dias na meta (n = 5)": 0.7531,
+      "Período inteiro na meta": 0.19345
+    },
+    "115": {
+      "Dias seguidos na meta (n = 5)": 0.02615,
+      "Qualquer janela de n dias na meta (n = 5)": 0.64405,
+      "Período inteiro na meta": 0.1022
+    },
+    "120": {
+      "Dias seguidos na meta (n = 5)": 0.0164,
+      "Qualquer janela de n dias na meta (n = 5)": 0.52315,
+      "Período inteiro na meta": 0.0532
+    },
+    "125": {
+      "Dias seguidos na meta (n = 5)": 0.0105,
+      "Qualquer janela de n dias na meta (n = 5)": 0.41585,
+      "Período inteiro na meta": 0.02445
+    },
+    "130": {
+      "Dias seguidos na meta (n = 5)": 0.00475,
+      "Qualquer janela de n dias na meta (n = 5)": 0.3236,
+      "Período inteiro na meta": 0.01065
+    },
+    "135": {
+      "Dias seguidos na meta (n = 5)": 0.0039,
+      "Qualquer janela de n dias na meta (n = 5)": 0.24975,
+      "Período inteiro na meta": 0.0048
+    },
+    "140": {
+      "Dias seguidos na meta (n = 5)": 0.0024,
+      "Qualquer janela de n dias na meta (n = 5)": 0.184,
+      "Período inteiro na meta": 0.00195
+    },
+    "145": {
+      "Dias seguidos na meta (n = 5)": 0.0007,
+      "Qualquer janela de n dias na meta (n = 5)": 0.12925,
+      "Período inteiro na meta": 0.00045
+    },
+    "150": {
+      "Dias seguidos na meta (n = 5)": 0.0003,
+      "Qualquer janela de n dias na meta (n = 5)": 0.09605,
+      "Período inteiro na meta": 0.00025
+    }
+  },
+  "escala_sensibilidade_n": {
+    "2": {
+      "dias seguidos: libera a boa (CAC 90)": 0.9908,
+      "dias seguidos: libera a ruim (CAC 110)": 0.7472,
+      "qualquer janela: libera a boa (CAC 90)": 1.0,
+      "qualquer janela: libera a ruim (CAC 110)": 0.9774
+    },
+    "3": {
+      "dias seguidos: libera a boa (CAC 90)": 0.87265,
+      "dias seguidos: libera a ruim (CAC 110)": 0.3191,
+      "qualquer janela: libera a boa (CAC 90)": 0.9993,
+      "qualquer janela: libera a ruim (CAC 110)": 0.8817
+    },
+    "4": {
+      "dias seguidos: libera a boa (CAC 90)": 0.6384,
+      "dias seguidos: libera a ruim (CAC 110)": 0.1105,
+      "qualquer janela: libera a boa (CAC 90)": 0.9986,
+      "qualquer janela: libera a ruim (CAC 110)": 0.80585
+    },
+    "5": {
+      "dias seguidos: libera a boa (CAC 90)": 0.41535,
+      "dias seguidos: libera a ruim (CAC 110)": 0.0374,
+      "qualquer janela: libera a boa (CAC 90)": 0.99555,
+      "qualquer janela: libera a ruim (CAC 110)": 0.6641
+    },
+    "6": {
+      "dias seguidos: libera a boa (CAC 90)": 0.24955,
+      "dias seguidos: libera a ruim (CAC 110)": 0.01155,
+      "qualquer janela: libera a boa (CAC 90)": 0.9935,
+      "qualquer janela: libera a ruim (CAC 110)": 0.5895
+    },
+    "7": {
+      "dias seguidos: libera a boa (CAC 90)": 0.1459,
+      "dias seguidos: libera a ruim (CAC 110)": 0.003,
+      "qualquer janela: libera a boa (CAC 90)": 0.98645,
+      "qualquer janela: libera a ruim (CAC 110)": 0.4693
+    }
+  },
+  "consequencia_da_escala": {
+    "80": {
+      "retorno sobre a verba de escala": 0.3260901069,
+      "Dias seguidos na meta (n = 5)": 0.7648,
+      "Qualquer janela de n dias na meta (n = 5)": 1.0,
+      "Período inteiro na meta": 0.99885
+    },
+    "90": {
+      "retorno sobre a verba de escala": 0.1787467617,
+      "Dias seguidos na meta (n = 5)": 0.41535,
+      "Qualquer janela de n dias na meta (n = 5)": 0.99555,
+      "Período inteiro na meta": 0.9267
+    },
+    "100": {
+      "retorno sobre a verba de escala": 0.0608720855,
+      "Dias seguidos na meta (n = 5)": 0.14415,
+      "Qualquer janela de n dias na meta (n = 5)": 0.9252,
+      "Período inteiro na meta": 0.51035
+    },
+    "110": {
+      "retorno sobre a verba de escala": -0.0355708314,
+      "Dias seguidos na meta (n = 5)": 0.0374,
+      "Qualquer janela de n dias na meta (n = 5)": 0.6641,
+      "Período inteiro na meta": 0.11095
+    },
+    "120": {
+      "retorno sobre a verba de escala": -0.1159399287,
+      "Dias seguidos na meta (n = 5)": 0.00765,
+      "Qualquer janela de n dias na meta (n = 5)": 0.3337,
+      "Período inteiro na meta": 0.0094
+    },
+    "130": {
+      "retorno sobre a verba de escala": -0.1839445496,
+      "Dias seguidos na meta (n = 5)": 0.0019,
+      "Qualquer janela de n dias na meta (n = 5)": 0.11965,
+      "Período inteiro na meta": 0.0007
+    }
+  },
+  "limite_estatistico": {
+    "7 dias": 92.10526315789474,
+    "14 dias": 95.62841530054644
+  },
+  "operacao_simulada": {
+    "corte": [
+      {
+        "criativo": "C1",
+        "cac_real": 110.0,
+        "corte_limiar_simples": null,
+        "corte_limiar_com_piso": null,
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 15.0,
+        "cac_no_teste": 77.7777777778
+      },
+      {
+        "criativo": "A2",
+        "cac_real": 100.0,
+        "corte_limiar_simples": null,
+        "corte_limiar_com_piso": null,
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 12.0,
+        "cac_no_teste": 97.2222222222
+      },
+      {
+        "criativo": "A1",
+        "cac_real": 70.0,
+        "corte_limiar_simples": "2030-01-08T00:00:00.000",
+        "corte_limiar_com_piso": null,
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 12.0,
+        "cac_no_teste": 97.2222222222
+      },
+      {
+        "criativo": "B1",
+        "cac_real": 90.0,
+        "corte_limiar_simples": "2030-01-09T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-09T00:00:00.000",
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 11.0,
+        "cac_no_teste": 106.0606060606
+      },
+      {
+        "criativo": "C2",
+        "cac_real": 200.0,
+        "corte_limiar_simples": "2030-01-12T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-12T00:00:00.000",
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 9.0,
+        "cac_no_teste": 129.6296296296
+      },
+      {
+        "criativo": "B2",
+        "cac_real": 130.0,
+        "corte_limiar_simples": "2030-01-08T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-11T00:00:00.000",
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 9.0,
+        "cac_no_teste": 129.6296296296
+      },
+      {
+        "criativo": "B3",
+        "cac_real": 275.0,
+        "corte_limiar_simples": "2030-01-08T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-17T00:00:00.000",
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 8.0,
+        "cac_no_teste": 145.8333333333
+      },
+      {
+        "criativo": "A3",
+        "cac_real": 160.0,
+        "corte_limiar_simples": null,
+        "corte_limiar_com_piso": null,
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 8.0,
+        "cac_no_teste": 145.8333333333
+      },
+      {
+        "criativo": "C3",
+        "cac_real": 400.0,
+        "corte_limiar_simples": "2030-01-09T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-09T00:00:00.000",
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 4.0,
+        "cac_no_teste": 291.6666666667
+      }
+    ],
+    "escala": [
+      {
+        "dia": "2030-01-07T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 5.0,
+        "cac_dia": 150.0,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 150.0
+      },
+      {
+        "dia": "2030-01-08T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 6.0,
+        "cac_dia": 125.0,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 136.3636363636
+      },
+      {
+        "dia": "2030-01-09T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 4.0,
+        "cac_dia": 187.5,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 150.0
+      },
+      {
+        "dia": "2030-01-10T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 11.0,
+        "cac_dia": 68.1818181818,
+        "na_meta": true,
+        "dias_seguidos_na_meta": 1,
+        "libera_escala": false,
+        "cac_acumulado": 115.3846153846
+      },
+      {
+        "dia": "2030-01-11T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 5.0,
+        "cac_dia": 150.0,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 120.9677419355
+      },
+      {
+        "dia": "2030-01-12T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 8.0,
+        "cac_dia": 93.75,
+        "na_meta": true,
+        "dias_seguidos_na_meta": 1,
+        "libera_escala": false,
+        "cac_acumulado": 115.3846153846
+      },
+      {
+        "dia": "2030-01-13T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 5.0,
+        "cac_dia": 150.0,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 119.3181818182
+      },
+      {
+        "dia": "2030-01-14T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 11.0,
+        "cac_dia": 68.1818181818,
+        "na_meta": true,
+        "dias_seguidos_na_meta": 1,
+        "libera_escala": false,
+        "cac_acumulado": 109.0909090909
+      },
+      {
+        "dia": "2030-01-15T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 7.0,
+        "cac_dia": 107.1428571429,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 108.8709677419
+      },
+      {
+        "dia": "2030-01-16T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 2.0,
+        "cac_dia": 375.0,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 117.1875
+      },
+      {
+        "dia": "2030-01-17T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 4.0,
+        "cac_dia": 187.5,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 121.3235294118
+      },
+      {
+        "dia": "2030-01-18T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 9.0,
+        "cac_dia": 83.3333333333,
+        "na_meta": true,
+        "dias_seguidos_na_meta": 1,
+        "libera_escala": false,
+        "cac_acumulado": 116.8831168831
+      },
+      {
+        "dia": "2030-01-19T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 3.0,
+        "cac_dia": 250.0,
+        "na_meta": false,
+        "dias_seguidos_na_meta": 0,
+        "libera_escala": false,
+        "cac_acumulado": 121.875
+      },
+      {
+        "dia": "2030-01-20T00:00:00.000",
+        "gasto": 750.0,
+        "vendas": 8.0,
+        "cac_dia": 93.75,
+        "na_meta": true,
+        "dias_seguidos_na_meta": 1,
+        "libera_escala": false,
+        "cac_acumulado": 119.3181818182
+      }
+    ],
+    "margem": [
+      {
+        "criativo": "C1",
+        "cac_real": 110.0,
+        "cliques": 189.0,
+        "demonstracoes": 82.0,
+        "pedidos": 15,
+        "taxa_demo_venda": 0.1829268293,
+        "midia": 1166.6666666667,
+        "cac": 77.7777777778,
+        "receita": 2080.0,
+        "sobra_antes_da_midia": 1375.9,
+        "resultado": 209.2333333333
+      },
+      {
+        "criativo": "A2",
+        "cac_real": 100.0,
+        "cliques": 186.0,
+        "demonstracoes": 64.0,
+        "pedidos": 12,
+        "taxa_demo_venda": 0.1875,
+        "midia": 1166.6666666667,
+        "cac": 97.2222222222,
+        "receita": 1580.0,
+        "sobra_antes_da_midia": 1034.1,
+        "resultado": -132.5666666667
+      },
+      {
+        "criativo": "A1",
+        "cac_real": 70.0,
+        "cliques": 208.0,
+        "demonstracoes": 110.0,
+        "pedidos": 12,
+        "taxa_demo_venda": 0.1090909091,
+        "midia": 1166.6666666667,
+        "cac": 97.2222222222,
+        "receita": 1790.0,
+        "sobra_antes_da_midia": 1004.3,
+        "resultado": -162.3666666667
+      },
+      {
+        "criativo": "B2",
+        "cac_real": 130.0,
+        "cliques": 205.0,
+        "demonstracoes": 60.0,
+        "pedidos": 9,
+        "taxa_demo_venda": 0.15,
+        "midia": 1166.6666666667,
+        "cac": 129.6296296296,
+        "receita": 1430.0,
+        "sobra_antes_da_midia": 931.0,
+        "resultado": -235.6666666667
+      },
+      {
+        "criativo": "C2",
+        "cac_real": 200.0,
+        "cliques": 192.0,
+        "demonstracoes": 42.0,
+        "pedidos": 9,
+        "taxa_demo_venda": 0.2142857143,
+        "midia": 1166.6666666667,
+        "cac": 129.6296296296,
+        "receita": 1150.0,
+        "sobra_antes_da_midia": 776.0,
+        "resultado": -390.6666666667
+      },
+      {
+        "criativo": "A3",
+        "cac_real": 160.0,
+        "cliques": 194.0,
+        "demonstracoes": 50.0,
+        "pedidos": 8,
+        "taxa_demo_venda": 0.16,
+        "midia": 1166.6666666667,
+        "cac": 145.8333333333,
+        "receita": 1170.0,
+        "sobra_antes_da_midia": 756.1,
+        "resultado": -410.5666666667
+      },
+      {
+        "criativo": "B3",
+        "cac_real": 275.0,
+        "cliques": 213.0,
+        "demonstracoes": 41.0,
+        "pedidos": 8,
+        "taxa_demo_venda": 0.1951219512,
+        "midia": 1166.6666666667,
+        "cac": 145.8333333333,
+        "receita": 1030.0,
+        "sobra_antes_da_midia": 683.5,
+        "resultado": -483.1666666667
+      },
+      {
+        "criativo": "B1",
+        "cac_real": 90.0,
+        "cliques": 192.0,
+        "demonstracoes": 80.0,
+        "pedidos": 11,
+        "taxa_demo_venda": 0.1375,
+        "midia": 1166.6666666667,
+        "cac": 106.0606060606,
+        "receita": 1270.0,
+        "sobra_antes_da_midia": 676.9,
+        "resultado": -489.7666666667
+      },
+      {
+        "criativo": "C3",
+        "cac_real": 400.0,
+        "cliques": 207.0,
+        "demonstracoes": 23.0,
+        "pedidos": 4,
+        "taxa_demo_venda": 0.1739130435,
+        "midia": 1166.6666666667,
+        "cac": 291.6666666667,
+        "receita": 550.0,
+        "sobra_antes_da_midia": 363.9,
+        "resultado": -802.7666666667
+      }
+    ]
+  }
+}
