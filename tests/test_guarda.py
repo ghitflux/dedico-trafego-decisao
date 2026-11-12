@@ -34,6 +34,12 @@ IGNORADAS = {".git", ".venv", "__pycache__", ".pytest_cache", ".ipynb_checkpoint
 SEM_VARREDURA_DE_VALORES = {"data/cambio_ptax.csv", "uv.lock"}
 MOEDA_COM_NUMERO = re.compile(r"(?:R|US|U)\$\s*\d|\b\d+(?:[.,]\d+)?\s*(?:reais|centavos|BRL)\b", re.IGNORECASE)
 NOME_DO_PRODUTO = "Dedico" + " " + "Songs"
+POSICAO_DE_PRECO = re.compile(
+    r"mediana do mercado|market median|mediana del mercado|percentil do pre[cç]o|pre[cç]o do produto"
+    r"|pre[cç]o no mercado|pre[cç]o entre concorrentes|preco_concorrentes|posi[cç][aã]o (relativa )?(do|de) pre[cç]o"
+    r"|cobram (menos|mais)|concorrentes_exemplo|carregar_concorrentes|posicao_de_preco",
+    re.IGNORECASE,
+)
 
 
 def _versionados() -> list[str]:
@@ -76,6 +82,31 @@ def test_nenhum_arquivo_versionado_tem_valor_em_moeda():
     assert not achados, "valor em moeda em arquivo versionado:\n" + "\n".join(achados[:20])
 
 
+def test_nenhum_arquivo_publicado_traz_a_posicao_de_preco():
+    """Mesmo em índice, a posição do preço entre concorrentes deixa deduzir o preço do produto.
+
+    Vale para todo arquivo versionado (README, notebook, resultados.json, código) e para os PNG:
+    a figura de preço não pode voltar. Os próprios arquivos de teste ficam de fora porque contêm o padrão.
+    """
+    achados = []
+    for caminho in _versionados():
+        if caminho.startswith("tests/"):
+            continue
+        texto = _ler(caminho)
+        achados += [f"{caminho}: ...{_trecho(texto, m.start())}..." for m in POSICAO_DE_PRECO.finditer(texto)]
+    assert not achados, "posição de preço em arquivo versionado:\n" + "\n".join(achados[:20])
+    assert not (RAIZ / "reports" / "figuras" / "preco_concorrentes.png").exists()
+
+
+def test_readme_e_notebook_estao_cobertos_pelo_guarda():
+    """README e notebook são os arquivos que mais mudam à mão: confere que entram na varredura e passam limpos."""
+    for caminho in ("README.md", "analise.ipynb"):
+        assert caminho in _versionados()
+        texto = _ler(caminho)
+        assert not MOEDA_COM_NUMERO.search(texto), caminho
+        assert not POSICAO_DE_PRECO.search(texto), caminho
+
+
 def test_nome_do_produto_aparece_no_maximo_uma_vez():
     total = sum(_ler(caminho).count(NOME_DO_PRODUTO) for caminho in _versionados())
     assert total <= 1
@@ -97,7 +128,7 @@ def test_nenhum_arquivo_versionado_tem_valor_ou_termo_da_lista_privada():
 
 
 def test_nenhuma_figura_tem_texto_com_moeda():
-    """Monta as cinco figuras com os parâmetros de exemplo e lê todo texto desenhado nelas."""
+    """Monta as quatro figuras com os parâmetros de exemplo e lê todo texto desenhado nelas."""
     p = parametros.carregar(parametros.EXEMPLO)
     ptax = analise.carregar_cambio()
     equilibrio = economia.sobra_de_referencia(p, ptax)
@@ -105,7 +136,6 @@ def test_nenhuma_figura_tem_texto_com_moeda():
     desenho = analise.desenho_do_teste(p)
     corte, _ = analise.curvas_de_corte(p, equilibrio)
     figuras = [
-        graficos.preco_entre_concorrentes(analise.posicao_de_preco(analise.carregar_concorrentes(p), p.preco)),
         graficos.fronteira_de_equilibrio(
             analise.fronteira(p, equilibrio, sorteio),
             analise.cenarios_de_referencia(p, equilibrio),
@@ -122,6 +152,8 @@ def test_nenhuma_figura_tem_texto_com_moeda():
             assert len(textos) > 5
             com_moeda = [t for t in textos if "$" in t or MOEDA_COM_NUMERO.search(t)]
             assert not com_moeda, com_moeda
+            com_preco = [t for t in textos if POSICAO_DE_PRECO.search(t)]
+            assert not com_preco, com_preco
     finally:
         for figura in figuras:
             plt.close(figura)

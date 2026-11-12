@@ -29,4 +29,4 @@ SELECT
     MAX(gasto_acumulado) / NULLIF(MAX(vendas_acumuladas), 0)                         AS cac_no_teste
 FROM avaliado
 GROUP BY criativo
-ORDER BY cac_no_teste NULLS LAST;
+ORDER BY cac_no_teste NULLS LAST, criativo;

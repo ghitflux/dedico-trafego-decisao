@@ -23,7 +23,6 @@ fecha?** e **regras desse formato decidem certo quando os números do dia oscila
 
 | Pergunta | Resposta |
 |---|---|
-| Onde o preço está no mercado? | Abaixo da mediana: 17% abaixo, com 6 concorrentes cobrando menos e 9 cobrando mais |
 | Quanto sobra por venda para pagar mídia? | **106**, com a meta de CAC em 100: é o CAC de empate, só 6% acima da meta |
 | A conta fecha? | Em **0,5%** dos cenários sorteados. Dos 4 cenários de referência, só o "Ótimo" dá lucro |
 | O que medir primeiro? | CPC e conversão: movem o lucro por venda em 212 e 150 pontos. Câmbio e forma de pagamento, 5 pontos |
@@ -36,8 +35,8 @@ fecha?** e **regras desse formato decidem certo quando os números do dia oscila
   CAC 25% acima da meta; um lucro por venda de −19 é um prejuízo de 19% da meta em cada venda.
 - **O que é relativo por natureza** fica como está: probabilidades, frações de cenários, conversões em
   relação à ponta da faixa, retorno sobre a verba.
-- **O que não está no repositório:** preço do produto, custos por venda, taxas, imposto, câmbio aplicado,
-  verba, as faixas de cada entrada e os preços individuais dos concorrentes. Esses valores ficam num
+- **O que não está no repositório:** preço, custos por venda, taxas, imposto, câmbio aplicado, verba e
+  as faixas de cada entrada. Esses valores ficam num
   arquivo local fora do git (`data/privado/`). O repositório traz
   [`data/parametros_exemplo.json`](data/parametros_exemplo.json), com valores **fictícios**, para o código
   rodar e os testes passarem.
@@ -48,22 +47,13 @@ fecha?** e **regras desse formato decidem certo quando os números do dia oscila
 
 | Entrada | Origem |
 |---|---|
-| Preços de concorrentes | Levantamento próprio; aqui só a posição relativa do preço |
 | Custo variável por venda e por demonstração grátis | Medido |
 | Câmbio | PTAX diária do Banco Central, 12 meses (`data/cambio_ptax.csv`) |
 | Taxas de pagamento e imposto | Publicadas, a confirmar |
 | CPC, conversões, receita de extras, reembolso | **Premissa**: o produto ainda não tinha clientes |
 | Operação da camada SQL | **Simulada**, com valores fictícios e a verdade conhecida |
 
-## 1. O preço no mercado
-
-![Preço entre concorrentes](reports/figuras/preco_concorrentes.png)
-
-Com a mediana do mercado em 100, o preço do produto fica em 83. Seis concorrentes cobram menos e nove
-cobram mais (percentil 40). São 15 marcas num único dia: dá para dizer onde o preço está, não qual preço
-vende mais.
-
-## 2. A conta fecha?
+## 1. A conta fecha?
 
 De cada venda saem taxa de pagamento, imposto, custo de entrega e o custo das **demonstrações grátis que
 não viraram compra** (quem compra carrega a conta de quem só experimentou). O que resta é a sobra para
@@ -83,7 +73,7 @@ Sorteando 100 mil cenários dentro das faixas (todo valor tratado como igualment
 pagam na primeira compra e 2% ficam com CAC na meta. Esse número não é a probabilidade de o lançamento
 dar certo: é o tamanho da aposta. A meta exige clique perto do piso da faixa **e** conversão perto do teto.
 
-## 3. O que medir primeiro
+## 2. O que medir primeiro
 
 ![Sensibilidade](reports/figuras/sensibilidade.png)
 
@@ -102,7 +92,7 @@ Trocar de fornecedor ou negociar taxa de pagamento não muda a decisão. Medir C
 E leva tempo: num teste que rende 12,5 vendas por dia na meta, um CAC real de 100 pode aparecer como 78
 ou como 134 depois de 3 dias, e ainda entre 89 e 114 depois de 14.
 
-## 4. A regra de corte de criativo
+## 3. A regra de corte de criativo
 
 Vendas por dia são contagens que oscilam em torno de gasto ÷ CAC real (Poisson). Cada regra foi simulada
 20 mil vezes para cada CAC real, num teste de 14 dias em que um criativo na meta rende 0,83 venda por dia.
@@ -150,7 +140,7 @@ quase não muda o erro, e só um limiar de CAC bem folgado o reduz. O piso de ga
 | 6 × meta | 31% | 89% | 634 |
 | 8 × meta | 27% | 87% | 723 |
 
-## 5. A regra de escala
+## 4. A regra de escala
 
 ![Curvas de escala](reports/figuras/escala.png)
 
@@ -191,7 +181,7 @@ Com vendas duas vezes mais irregulares que o Poisson, a ordem entre as regras se
 crescem (a regra do período inteiro passa a liberar 19% das vezes a operação de CAC 110). As taxas acima
 são o melhor caso.
 
-## 6. Camada de métricas em SQL
+## 5. Camada de métricas em SQL
 
 Consultas em [`sql/`](sql/), rodadas no DuckDB sobre três tabelas (gasto de mídia, demonstrações e
 pagamentos):
@@ -210,8 +200,8 @@ sobrevive ao teste inteiro.
 
 ## Limitações
 
-- **Nenhuma venda real.** CPC, conversões, extras e reembolso são premissas, e os resultados das seções 2
-  e 3 dependem das faixas escolhidas.
+- **Nenhuma venda real.** CPC, conversões, extras e reembolso são premissas, e os resultados das seções 1
+  e 2 dependem das faixas escolhidas.
 - **Só a primeira compra.** Não entram recompra, indicação, tráfego orgânico nem recuperação de quem
   deixou contato e não comprou. Tudo isso melhora a conta e nada disso tem dado ainda.
 - **Sorteio uniforme** dentro das faixas: é a escolha de quem não tem dado. Com uma semana de operação as
@@ -231,7 +221,7 @@ Pré-requisito: [`uv`](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```bash
 uv sync
-uv run pytest                            # 32 testes
+uv run pytest                            # 38 testes
 uv run python scripts/rodar_analise.py   # roda a análise inteira
 uv run python scripts/extrair_dados.py   # opcional: atualiza o câmbio no Banco Central
 ```
@@ -249,8 +239,7 @@ O notebook [`analise.ipynb`](analise.ipynb) conta a história completa.
 ├── analise.ipynb
 ├── data/
 │   ├── cambio_ptax.csv          # cotação pública do dólar
-│   ├── parametros_exemplo.json  # valores fictícios
-│   └── concorrentes_exemplo.csv # preços fictícios
+│   └── parametros_exemplo.json  # valores fictícios
 ├── sql/                         # as quatro consultas
 ├── src/trafego_decisao/
 │   ├── parametros.py            # lê os parâmetros e converte para a escala publicada
@@ -259,9 +248,10 @@ O notebook [`analise.ipynb`](analise.ipynb) conta a história completa.
 │   ├── simulador.py             # operação simulada para a camada SQL
 │   ├── consultas.py             # roda o SQL no DuckDB
 │   ├── analise.py               # orquestra cada tabela, já em unidades relativas
+│   ├── site.py                  # textos e gráficos do estudo, como dados, para o site
 │   └── graficos.py, estilo.py
 ├── scripts/                     # rodar_analise.py, extrair_dados.py
-├── tests/                       # 32 testes (pytest), com um guarda contra valor em moeda
+├── tests/                       # 38 testes (pytest), com um guarda contra valor em moeda
 └── reports/                     # resultados.json e figuras
 ```
 
@@ -274,7 +264,7 @@ Hélcio Venâncio · [github.com/ghitflux](https://github.com/ghitflux) · Licen
 Este estudo foi construído com assistência de IA (Claude Code, da Anthropic), usada como par de programação.
 Declaro a divisão do trabalho porque ela importa para quem avalia:
 
-- **Meu:** o problema e os dados (a pergunta de negócio, os custos medidos e o levantamento de preços de concorrentes são do meu produto, o Dedico Songs), a leitura crítica dos resultados e a decisão do que publicar e do que declarar como limitação.
+- **Meu:** o problema e os dados (a pergunta de negócio e os custos medidos são do meu produto, o Dedico Songs), a leitura crítica dos resultados e a decisão do que publicar e do que declarar como limitação.
 - **Com o assistente:** a escolha do método, a implementação do código, dos testes e dos gráficos, e a redação,
   que revisei.
 - **Como conferir:** todo número deste README sai de `reports/resultados.json`, gerado por `scripts/rodar_analise.py`; os testes em `tests/` conferem a conta de margem e o SQL contra uma segunda implementação em Python.

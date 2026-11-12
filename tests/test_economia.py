@@ -76,15 +76,6 @@ def test_precisao_do_cac_estreita_com_mais_dias():
     assert (tabela["CAC observado mínimo"] < 100).all() and (tabela["CAC observado máximo"] > 100).all()
 
 
-def test_posicao_de_preco_so_devolve_numeros_relativos():
-    precos = pd.Series([10.0, 20.0, 40.0, 80.0, 160.0])
-    resumo = analise.posicao_de_preco(precos, preco=30.0)
-    assert resumo["cobram menos"] == 2 and resumo["cobram mais"] == 3
-    assert resumo["percentil do preço"] == pytest.approx(0.40)
-    assert resumo["preço (mediana do mercado = 100)"] == 75
-    assert resumo["p25 do mercado"] == 50 and resumo["p75 do mercado"] == 200
-
-
 def test_trocar_a_moeda_nao_muda_nenhum_resultado_publicado():
     """A escala publicada é relativa: multiplicar todo valor em moeda por um fator não pode mudar nada."""
     fator = 3.7

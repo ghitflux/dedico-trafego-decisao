@@ -19,7 +19,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from trafego_decisao import analise, economia, graficos, parametros
+from trafego_decisao import analise, economia, graficos, parametros, site
 
 
 def _json(tabela: pd.DataFrame, orient: str = "index") -> dict | list:
@@ -40,7 +40,6 @@ def main() -> None:
     pasta_figuras.mkdir(parents=True, exist_ok=True)
 
     ptax = analise.carregar_cambio()
-    resumo_precos = analise.posicao_de_preco(analise.carregar_concorrentes(p), p.preco)
     conferencia = analise.conferir_modelo(p)
     equilibrio = economia.sobra_de_referencia(p, ptax)  # em moeda; só sai daqui como índice
     equilibrio_indice = float(p.indice(equilibrio))
@@ -59,7 +58,6 @@ def main() -> None:
     operacao = analise.operacao_simulada()
 
     figuras = {
-        "preco_concorrentes": graficos.preco_entre_concorrentes(resumo_precos),
         "fronteira": graficos.fronteira_de_equilibrio(geometria, cenarios, resumo_cenarios["fracao_que_se_paga"]),
         "sensibilidade": graficos.sensibilidade(sensibilidade),
         "corte": graficos.curvas_de_corte(corte_prob, equilibrio_indice, desenho),
@@ -72,7 +70,6 @@ def main() -> None:
     resultados = {
         "escala": "Valores em moeda divididos pela meta de CAC e multiplicados por 100 (meta de CAC = 100).",
         "parametros": p.fonte,
-        "precos": resumo_precos,
         "conferencia_do_modelo": _json(conferencia),
         "cac_de_empate": equilibrio_indice,
         "cenarios_de_referencia": _json(cenarios),
@@ -97,6 +94,9 @@ def main() -> None:
             "margem": _json(operacao["margem"], "records"),
         },
     }
+    # O bloco do site lê os resultados já serializados (mesmas chaves e valores que vão ao arquivo).
+    resultados = json.loads(json.dumps(resultados, ensure_ascii=False))
+    resultados["para_o_site"] = site.bloco(resultados)
     (saida / "resultados.json").write_text(json.dumps(resultados, indent=2, ensure_ascii=False), encoding="utf-8")
     print(
         f"CAC de empate: {equilibrio_indice:.1f} (meta = 100) | cenários que se pagam: "

@@ -30,33 +30,6 @@ from trafego_decisao.estilo import (
 META = 100.0
 
 
-def preco_entre_concorrentes(resumo: dict[str, float]) -> Figure:
-    """Faixa do mercado em relação à mediana, com a posição do preço do produto."""
-    preco = resumo["preço (mediana do mercado = 100)"]
-    lado = "abaixo" if preco < 100 else "acima"
-    with plt.rc_context(ESTILO):
-        fig, ax = nova_figura(
-            f"O preço do produto fica {lado} da mediana do mercado",
-            f"Preço de {resumo['concorrentes com preço']} concorrentes, com a mediana valendo 100. "
-            "Faixa clara: de p10 a p90. Faixa escura: metade central.",
-            altura=2.9,
-        )
-        fig.subplots_adjust(left=0.04, bottom=0.26, top=0.68)
-        ax.grid(axis="y", visible=False)
-        ax.grid(axis="x", visible=True)
-        ax.plot([resumo["p10 do mercado"], resumo["p90 do mercado"]], [0, 0], color=RAMPA_AZUL[0], linewidth=9, solid_capstyle="butt", zorder=2)
-        ax.plot([resumo["p25 do mercado"], resumo["p75 do mercado"]], [0, 0], color=AZUL, linewidth=9, solid_capstyle="butt", zorder=3)
-        ax.plot([100, 100], [-0.28, 0.28], color=TINTA_SECUNDARIA, linewidth=1.2, zorder=4)
-        ax.annotate("mediana", (100, -0.34), ha="center", va="top", color=TINTA_SECUNDARIA, fontsize=8.5)
-        ax.plot([preco, preco], [-0.28, 0.42], color=TINTA, linewidth=2, zorder=5)
-        ax.annotate(f"produto: {numero(preco, 0)}", (preco, 0.50), ha="center", va="bottom", color=TINTA, fontsize=9.5)
-        ax.set_yticks([])
-        ax.set_ylim(-0.8, 1.0)
-        ax.set_xlim(0, max(resumo["p90 do mercado"], preco) * 1.08)
-        ax.set_xlabel("preço em relação à mediana do mercado (mediana = 100)")
-        return fig
-
-
 def fronteira_de_equilibrio(geometria: dict[str, float], cenarios: pd.DataFrame, fracao_que_se_paga: float) -> Figure:
     """Onde a primeira compra paga a mídia, em eixos relativos às pontas das faixas."""
     with plt.rc_context(ESTILO):

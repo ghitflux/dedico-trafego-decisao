@@ -36,39 +36,6 @@ def carregar_cambio() -> pd.Series:
     return pd.read_csv(DADOS / "cambio_ptax.csv")["dolar_venda"]
 
 
-def carregar_concorrentes(p: Parametros) -> pd.Series:
-    """Preços de concorrentes: o levantamento real (privado) ou a lista fictícia de exemplo."""
-    privado = DADOS / "privado" / "concorrentes_precos.csv"
-    tabela = pd.read_csv(privado if p.fonte == "privado" and privado.exists() else DADOS / "concorrentes_exemplo.csv")
-    if {"pais", "ativo"} <= set(tabela.columns):
-        tabela = tabela[(tabela["pais"] == "BR") & (tabela["ativo"] == "sim")]
-    return tabela["preco_principal"].dropna().reset_index(drop=True)
-
-
-# --------------------------------------------------------------------------- mercado
-
-
-def posicao_de_preco(precos: pd.Series, preco: float) -> dict[str, float]:
-    """Onde o preço do produto cai entre os concorrentes, só em termos relativos.
-
-    Os preços individuais não são publicados: saem contagens, o percentil e a distribuição
-    em relação à mediana do mercado (mediana = 100), arredondada.
-    """
-    mediana = float(precos.median())
-    relativo = lambda valor: int(round(100 * float(valor) / mediana))  # noqa: E731
-    return {
-        "concorrentes com preço": int(len(precos)),
-        "cobram menos": int((precos < preco).sum()),
-        "cobram mais": int((precos > preco).sum()),
-        "percentil do preço": round(float((precos < preco).mean()), 2),
-        "preço (mediana do mercado = 100)": relativo(preco),
-        "p10 do mercado": relativo(precos.quantile(0.10)),
-        "p25 do mercado": relativo(precos.quantile(0.25)),
-        "p75 do mercado": relativo(precos.quantile(0.75)),
-        "p90 do mercado": relativo(precos.quantile(0.90)),
-    }
-
-
 # --------------------------------------------------------------------------- economia
 
 

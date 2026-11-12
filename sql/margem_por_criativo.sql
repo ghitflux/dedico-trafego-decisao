@@ -48,4 +48,4 @@ SELECT
         - f.midia                                                         AS resultado
 FROM funil AS f
 LEFT JOIN pedidos AS p USING (criativo)
-ORDER BY resultado DESC;
+ORDER BY resultado DESC, criativo;

@@ -1,17 +1,6 @@
 {
   "escala": "Valores em moeda divididos pela meta de CAC e multiplicados por 100 (meta de CAC = 100).",
   "parametros": "privado",
-  "precos": {
-    "concorrentes com preço": 15,
-    "cobram menos": 6,
-    "cobram mais": 9,
-    "percentil do preço": 0.4,
-    "preço (mediana do mercado = 100)": 83,
-    "p10 do mercado": 55,
-    "p25 do mercado": 66,
-    "p75 do mercado": 148,
-    "p90 do mercado": 287
-  },
   "conferencia_do_modelo": {
     "Margem sem extras, só cartão, sem demonstração perdida": {
       "desvio do modelo": -0.0002512389
@@ -715,18 +704,18 @@
         "cac_no_teste": 77.7777777778
       },
       {
-        "criativo": "A2",
-        "cac_real": 100.0,
-        "corte_limiar_simples": null,
+        "criativo": "A1",
+        "cac_real": 70.0,
+        "corte_limiar_simples": "2030-01-08T00:00:00.000",
         "corte_limiar_com_piso": null,
         "gasto_no_teste": 1166.6666666667,
         "vendas_no_teste": 12.0,
         "cac_no_teste": 97.2222222222
       },
       {
-        "criativo": "A1",
-        "cac_real": 70.0,
-        "corte_limiar_simples": "2030-01-08T00:00:00.000",
+        "criativo": "A2",
+        "cac_real": 100.0,
+        "corte_limiar_simples": null,
         "corte_limiar_com_piso": null,
         "gasto_no_teste": 1166.6666666667,
         "vendas_no_teste": 12.0,
@@ -742,15 +731,6 @@
         "cac_no_teste": 106.0606060606
       },
       {
-        "criativo": "C2",
-        "cac_real": 200.0,
-        "corte_limiar_simples": "2030-01-12T00:00:00.000",
-        "corte_limiar_com_piso": "2030-01-12T00:00:00.000",
-        "gasto_no_teste": 1166.6666666667,
-        "vendas_no_teste": 9.0,
-        "cac_no_teste": 129.6296296296
-      },
-      {
         "criativo": "B2",
         "cac_real": 130.0,
         "corte_limiar_simples": "2030-01-08T00:00:00.000",
@@ -760,19 +740,28 @@
         "cac_no_teste": 129.6296296296
       },
       {
-        "criativo": "B3",
-        "cac_real": 275.0,
-        "corte_limiar_simples": "2030-01-08T00:00:00.000",
-        "corte_limiar_com_piso": "2030-01-17T00:00:00.000",
+        "criativo": "C2",
+        "cac_real": 200.0,
+        "corte_limiar_simples": "2030-01-12T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-12T00:00:00.000",
         "gasto_no_teste": 1166.6666666667,
-        "vendas_no_teste": 8.0,
-        "cac_no_teste": 145.8333333333
+        "vendas_no_teste": 9.0,
+        "cac_no_teste": 129.6296296296
       },
       {
         "criativo": "A3",
         "cac_real": 160.0,
         "corte_limiar_simples": null,
         "corte_limiar_com_piso": null,
+        "gasto_no_teste": 1166.6666666667,
+        "vendas_no_teste": 8.0,
+        "cac_no_teste": 145.8333333333
+      },
+      {
+        "criativo": "B3",
+        "cac_real": 275.0,
+        "corte_limiar_simples": "2030-01-08T00:00:00.000",
+        "corte_limiar_com_piso": "2030-01-17T00:00:00.000",
         "gasto_no_teste": 1166.6666666667,
         "vendas_no_teste": 8.0,
         "cac_no_teste": 145.8333333333
@@ -1046,6 +1035,999 @@
         "receita": 550.0,
         "sobra_antes_da_midia": 363.9,
         "resultado": -802.7666666667
+      }
+    ]
+  },
+  "para_o_site": {
+    "numero_chave": {
+      "pt": "59%",
+      "en": "59%",
+      "es": "59%"
+    },
+    "pergunta": {
+      "pt": "Regras de bolso de verba (cortar criativo, escalar campanha) decidem certo quando as vendas do dia oscilam por acaso?",
+      "en": "Do rule-of-thumb budget rules (killing creatives, scaling campaigns) decide correctly when daily sales swing by chance?",
+      "es": "¿Las reglas prácticas de presupuesto (apagar creatividades, escalar campañas) deciden bien cuando las ventas del día oscilan por azar?"
+    },
+    "resultado": {
+      "pt": "Um corte por limiar desliga 59% dos criativos que estão exatamente na meta; com piso de gasto antes de julgar o CAC, 38%. Exigir dias seguidos na meta libera só 42% das vezes uma operação lucrativa; somar o teste inteiro libera 93%.",
+      "en": "A threshold kill rule switches off 59% of creatives that are exactly on target; with a minimum spend before judging CAC, 38%. Requiring consecutive days on target scales up a profitable operation only 42% of the time; pooling the whole test does it 93% of the time.",
+      "es": "Un corte por umbral apaga el 59% de las creatividades que están justo en la meta; con un gasto mínimo antes de juzgar el CAC, el 38%. Exigir días seguidos en la meta libera solo el 42% de las veces una operación rentable; sumar la prueba completa la libera el 93%."
+    },
+    "detalhe": {
+      "pt": "Antes de qualquer regra, a conta: com a meta de CAC em 100, o CAC de empate é 106, e só 0,5% dos 100 mil cenários sorteados se pagam na primeira compra. Custo por clique e conversão decidem o resultado; câmbio e forma de pagamento quase não pesam.",
+      "en": "Before any rule, the math: with target CAC at 100, break-even CAC is 106, and only 0.5% of 100,000 sampled scenarios pay for themselves on the first purchase. Cost per click and conversion decide the outcome; exchange rate and payment method barely matter.",
+      "es": "Antes de cualquier regla, la cuenta: con la meta de CAC en 100, el CAC de equilibrio es 106, y solo el 0,5% de los 100.000 escenarios sorteados se paga en la primera compra. El costo por clic y la conversión deciden el resultado; el tipo de cambio y la forma de pago casi no pesan."
+    },
+    "dados": {
+      "pt": "Lançamento de um produto digital próprio, antes da primeira venda, publicado em unidades relativas (meta de CAC = 100). Custos medidos e câmbio do Banco Central; tráfego como premissa e 20 mil simulações por regra.",
+      "en": "Launch of the author's own digital product, before the first sale, published in relative units (target CAC = 100). Measured costs and central bank exchange rates; traffic as assumptions and 20,000 simulations per rule.",
+      "es": "Lanzamiento de un producto digital propio, antes de la primera venta, publicado en unidades relativas (meta de CAC = 100). Costos medidos y tipo de cambio del Banco Central; tráfico como supuesto y 20.000 simulaciones por regla."
+    },
+    "etiquetas": [
+      "tráfego pago",
+      "Monte Carlo",
+      "Poisson",
+      "curva de operação",
+      "análise de sensibilidade",
+      "SQL (DuckDB)"
+    ],
+    "grafico": {
+      "tipo": "linhas",
+      "titulo": {
+        "pt": "Um corte por limiar desliga 59% dos criativos que estão exatamente na meta",
+        "en": "A threshold kill rule switches off 59% of creatives that are exactly on target",
+        "es": "Un corte por umbral apaga el 59% de las creatividades que están justo en la meta"
+      },
+      "leitura": {
+        "pt": "Chance de um criativo ser desligado em 14 dias de teste, conforme o CAC real dele. Com piso de gasto antes de julgar o CAC, o erro na meta cai para 38%; com um teste estatístico, para 19%.",
+        "en": "Chance that a creative is switched off within a 14-day test, by its true CAC. With a minimum spend before judging CAC, the on-target error drops to 38%; with a statistical test, to 19%.",
+        "es": "Probabilidad de que una creatividad se apague en 14 días de prueba, según su CAC real. Con un gasto mínimo antes de juzgar el CAC, el error en la meta baja al 38%; con una prueba estadística, al 19%."
+      },
+      "eixo_x": {
+        "pt": "CAC real (meta = 100)",
+        "en": "True CAC (target = 100)",
+        "es": "CAC real (meta = 100)"
+      },
+      "eixo_y": {
+        "pt": "Chance de ser desligado",
+        "en": "Chance of being switched off",
+        "es": "Probabilidad de apagarse"
+      },
+      "formato_x": "numero",
+      "formato_y": "percentual",
+      "series": [
+        {
+          "nome": {
+            "pt": "Limiar simples",
+            "en": "Simple threshold",
+            "es": "Umbral simple"
+          },
+          "papel": "base",
+          "pontos": [
+            [
+              50.0,
+              0.1492
+            ],
+            [
+              60.0,
+              0.2337
+            ],
+            [
+              70.0,
+              0.3318
+            ],
+            [
+              80.0,
+              0.4199
+            ],
+            [
+              90.0,
+              0.5024
+            ],
+            [
+              100.0,
+              0.5858
+            ],
+            [
+              110.0,
+              0.6557
+            ],
+            [
+              125.0,
+              0.7454
+            ],
+            [
+              150.0,
+              0.8428
+            ],
+            [
+              175.0,
+              0.9098
+            ],
+            [
+              200.0,
+              0.9478
+            ],
+            [
+              250.0,
+              0.9797
+            ],
+            [
+              300.0,
+              0.9923
+            ]
+          ]
+        },
+        {
+          "nome": {
+            "pt": "Limiar com piso de gasto",
+            "en": "Threshold with minimum spend",
+            "es": "Umbral con gasto mínimo"
+          },
+          "papel": "alternativa",
+          "pontos": [
+            [
+              50.0,
+              0.0207
+            ],
+            [
+              60.0,
+              0.0559
+            ],
+            [
+              70.0,
+              0.1206
+            ],
+            [
+              80.0,
+              0.1963
+            ],
+            [
+              90.0,
+              0.2845
+            ],
+            [
+              100.0,
+              0.3812
+            ],
+            [
+              110.0,
+              0.4689
+            ],
+            [
+              125.0,
+              0.5929
+            ],
+            [
+              150.0,
+              0.7469
+            ],
+            [
+              175.0,
+              0.8534
+            ],
+            [
+              200.0,
+              0.9092
+            ],
+            [
+              250.0,
+              0.9653
+            ],
+            [
+              300.0,
+              0.987
+            ]
+          ]
+        },
+        {
+          "nome": {
+            "pt": "Teste estatístico",
+            "en": "Statistical test",
+            "es": "Prueba estadística"
+          },
+          "papel": "principal",
+          "pontos": [
+            [
+              50.0,
+              0.0088
+            ],
+            [
+              60.0,
+              0.0223
+            ],
+            [
+              70.0,
+              0.0481
+            ],
+            [
+              80.0,
+              0.0767
+            ],
+            [
+              90.0,
+              0.1223
+            ],
+            [
+              100.0,
+              0.1858
+            ],
+            [
+              110.0,
+              0.2418
+            ],
+            [
+              125.0,
+              0.3555
+            ],
+            [
+              150.0,
+              0.5097
+            ],
+            [
+              175.0,
+              0.6558
+            ],
+            [
+              200.0,
+              0.759
+            ],
+            [
+              250.0,
+              0.882
+            ],
+            [
+              300.0,
+              0.9443
+            ]
+          ]
+        }
+      ]
+    },
+    "graficos_extras": [
+      {
+        "tipo": "linhas",
+        "titulo": {
+          "pt": "Com CAC 10% abaixo da meta, dias seguidos liberam a escala 42% das vezes; somar tudo, 93%",
+          "en": "With CAC 10% under target, “days in a row” scales up 42% of the time; pooling, 93%",
+          "es": "Con el CAC 10% bajo la meta, días seguidos liberan la escala el 42%; sumarlo todo, el 93%"
+        },
+        "leitura": {
+          "pt": "Chance de cada regra liberar a escala ao fim de 14 dias de teste, conforme o CAC real da operação. Exigir dias seguidos perde operação boa; qualquer janela libera a ruim; somar o período inteiro separa melhor as duas.",
+          "en": "Chance that each rule allows scaling up at the end of a 14-day test, by the operation's true CAC. Requiring consecutive days misses good operations; any window lets bad ones through; pooling the whole period separates them best.",
+          "es": "Probabilidad de que cada regla libere la escala al final de 14 días de prueba, según el CAC real de la operación. Exigir días seguidos pierde operaciones buenas; cualquier ventana deja pasar las malas; sumar el período entero las separa mejor."
+        },
+        "eixo_x": {
+          "pt": "CAC real (meta = 100)",
+          "en": "True CAC (target = 100)",
+          "es": "CAC real (meta = 100)"
+        },
+        "eixo_y": {
+          "pt": "Chance de liberar a escala",
+          "en": "Chance of scaling up",
+          "es": "Probabilidad de liberar la escala"
+        },
+        "formato_x": "numero",
+        "formato_y": "percentual",
+        "series": [
+          {
+            "nome": {
+              "pt": "n dias seguidos na meta (n = 5)",
+              "en": "n days in a row on target (n = 5)",
+              "es": "n días seguidos en la meta (n = 5)"
+            },
+            "papel": "base",
+            "pontos": [
+              [
+                60.0,
+                0.9979
+              ],
+              [
+                65.0,
+                0.992
+              ],
+              [
+                70.0,
+                0.9643
+              ],
+              [
+                75.0,
+                0.8962
+              ],
+              [
+                80.0,
+                0.7648
+              ],
+              [
+                85.0,
+                0.5949
+              ],
+              [
+                90.0,
+                0.4153
+              ],
+              [
+                95.0,
+                0.252
+              ],
+              [
+                100.0,
+                0.1442
+              ],
+              [
+                105.0,
+                0.0713
+              ],
+              [
+                110.0,
+                0.0374
+              ],
+              [
+                115.0,
+                0.0169
+              ],
+              [
+                120.0,
+                0.0076
+              ],
+              [
+                125.0,
+                0.0029
+              ],
+              [
+                130.0,
+                0.0019
+              ],
+              [
+                135.0,
+                0.0004
+              ],
+              [
+                140.0,
+                0.0001
+              ],
+              [
+                145.0,
+                0.0001
+              ],
+              [
+                150.0,
+                0.0001
+              ]
+            ]
+          },
+          {
+            "nome": {
+              "pt": "Qualquer janela de n dias (n = 5)",
+              "en": "Any n-day window (n = 5)",
+              "es": "Cualquier ventana de n días (n = 5)"
+            },
+            "papel": "alternativa",
+            "pontos": [
+              [
+                60.0,
+                1.0
+              ],
+              [
+                65.0,
+                1.0
+              ],
+              [
+                70.0,
+                1.0
+              ],
+              [
+                75.0,
+                1.0
+              ],
+              [
+                80.0,
+                1.0
+              ],
+              [
+                85.0,
+                0.9996
+              ],
+              [
+                90.0,
+                0.9956
+              ],
+              [
+                95.0,
+                0.9773
+              ],
+              [
+                100.0,
+                0.9252
+              ],
+              [
+                105.0,
+                0.8222
+              ],
+              [
+                110.0,
+                0.6641
+              ],
+              [
+                115.0,
+                0.4908
+              ],
+              [
+                120.0,
+                0.3337
+              ],
+              [
+                125.0,
+                0.2053
+              ],
+              [
+                130.0,
+                0.1197
+              ],
+              [
+                135.0,
+                0.0671
+              ],
+              [
+                140.0,
+                0.0357
+              ],
+              [
+                145.0,
+                0.0176
+              ],
+              [
+                150.0,
+                0.0089
+              ]
+            ]
+          },
+          {
+            "nome": {
+              "pt": "Período inteiro",
+              "en": "Whole period",
+              "es": "Período completo"
+            },
+            "papel": "principal",
+            "pontos": [
+              [
+                60.0,
+                1.0
+              ],
+              [
+                65.0,
+                1.0
+              ],
+              [
+                70.0,
+                1.0
+              ],
+              [
+                75.0,
+                1.0
+              ],
+              [
+                80.0,
+                0.9989
+              ],
+              [
+                85.0,
+                0.9867
+              ],
+              [
+                90.0,
+                0.9267
+              ],
+              [
+                95.0,
+                0.7563
+              ],
+              [
+                100.0,
+                0.5103
+              ],
+              [
+                105.0,
+                0.2671
+              ],
+              [
+                110.0,
+                0.1109
+              ],
+              [
+                115.0,
+                0.0386
+              ],
+              [
+                120.0,
+                0.0094
+              ],
+              [
+                125.0,
+                0.0021
+              ],
+              [
+                130.0,
+                0.0007
+              ],
+              [
+                135.0,
+                0.0001
+              ],
+              [
+                140.0,
+                0.0001
+              ],
+              [
+                145.0,
+                0.0
+              ],
+              [
+                150.0,
+                0.0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "barras",
+        "titulo": {
+          "pt": "Custo por clique e conversão decidem o lucro por venda; o resto pesa pouco",
+          "en": "Cost per click and conversion decide profit per sale; the rest barely matters",
+          "es": "El costo por clic y la conversión deciden el beneficio por venta; el resto pesa poco"
+        },
+        "leitura": {
+          "pt": "Quanto o lucro por venda muda (meta de CAC = 100) quando só uma entrada vai da pior à melhor ponta da sua faixa: 212 pontos no custo por clique contra 5 na forma de pagamento. É isso que vale medir primeiro.",
+          "en": "How much profit per sale moves (target CAC = 100) when a single input runs from the worst to the best end of its range: 212 points for cost per click versus 5 for payment method. That is what to measure first.",
+          "es": "Cuánto cambia el beneficio por venta (meta de CAC = 100) cuando una sola entrada va del peor al mejor extremo de su rango: 212 puntos en el costo por clic frente a 5 en la forma de pago. Eso es lo que conviene medir primero."
+        },
+        "eixo_x": {
+          "pt": "Entrada",
+          "en": "Input",
+          "es": "Entrada"
+        },
+        "eixo_y": {
+          "pt": "Amplitude no lucro por venda (meta de CAC = 100)",
+          "en": "Swing in profit per sale (target CAC = 100)",
+          "es": "Amplitud en el beneficio por venta (meta de CAC = 100)"
+        },
+        "formato_x": "numero",
+        "formato_y": "numero",
+        "series": [
+          {
+            "nome": {
+              "pt": "Amplitude no lucro por venda",
+              "en": "Swing in profit per sale",
+              "es": "Amplitud en el beneficio por venta"
+            },
+            "papel": "principal",
+            "pontos": [
+              [
+                "Custo por clique",
+                212.5
+              ],
+              [
+                "Conversão de clique em compra",
+                150.0
+              ],
+              [
+                "Demonstrações que viram compra",
+                79.8
+              ],
+              [
+                "Receita de extras por pedido",
+                33.5
+              ],
+              [
+                "Imposto sobre a receita",
+                15.4
+              ],
+              [
+                "Pedidos reembolsados",
+                12.2
+              ],
+              [
+                "Dólar efetivo",
+                4.6
+              ],
+              [
+                "Pedidos pagos por Pix",
+                4.5
+              ]
+            ],
+            "rotulos": {
+              "pt": [
+                "Custo por clique",
+                "Conversão de clique em compra",
+                "Demonstrações que viram compra",
+                "Receita de extras por pedido",
+                "Imposto sobre a receita",
+                "Pedidos reembolsados",
+                "Dólar efetivo",
+                "Pedidos pagos por Pix"
+              ],
+              "en": [
+                "Cost per click",
+                "Click-to-purchase conversion",
+                "Free trials that convert",
+                "Add-on revenue per order",
+                "Tax on revenue",
+                "Refunded orders",
+                "Effective dollar rate",
+                "Orders paid via Pix"
+              ],
+              "es": [
+                "Costo por clic",
+                "Conversión de clic en compra",
+                "Demostraciones que se convierten",
+                "Ingreso por extras por pedido",
+                "Impuesto sobre el ingreso",
+                "Pedidos reembolsados",
+                "Dólar efectivo",
+                "Pedidos pagados por Pix"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "tipo": "linhas",
+        "titulo": {
+          "pt": "Só 0,5% dos cenários sorteados se pagam na primeira compra",
+          "en": "Only 0.5% of sampled scenarios pay for themselves on the first purchase",
+          "es": "Solo el 0,5% de los escenarios sorteados se paga en la primera compra"
+        },
+        "leitura": {
+          "pt": "Abaixo de cada linha, a primeira compra paga a mídia. A conversão está com o teto da faixa valendo 100 e o custo por clique com o piso valendo 100: a linha de empate só passa acima do piso no canto de conversão alta, o único pedaço da faixa que dá lucro.",
+          "en": "Below each line, the first purchase pays for the media. Conversion is scaled so the top of its range is 100 and cost per click so the bottom of its range is 100: the break-even line only clears the floor at high conversion, the one corner of the range that turns a profit.",
+          "es": "Por debajo de cada línea, la primera compra paga la publicidad. La conversión está con el techo del rango en 100 y el costo por clic con el piso en 100: la línea de equilibrio solo supera el piso con conversión alta, el único rincón del rango que da beneficio."
+        },
+        "eixo_x": {
+          "pt": "Conversão de clique em compra (teto da faixa = 100)",
+          "en": "Click-to-purchase conversion (top of range = 100)",
+          "es": "Conversión de clic en compra (techo del rango = 100)"
+        },
+        "eixo_y": {
+          "pt": "Custo por clique que empata (piso da faixa = 100)",
+          "en": "Break-even cost per click (bottom of range = 100)",
+          "es": "Costo por clic de equilibrio (piso del rango = 100)"
+        },
+        "formato_x": "numero",
+        "formato_y": "numero",
+        "series": [
+          {
+            "nome": {
+              "pt": "Empate com a margem de referência",
+              "en": "Break-even at the reference margin",
+              "es": "Equilibrio con el margen de referencia"
+            },
+            "papel": "principal",
+            "pontos": [
+              [
+                40.0,
+                53.04
+              ],
+              [
+                42.5,
+                56.36
+              ],
+              [
+                45.0,
+                59.67
+              ],
+              [
+                47.5,
+                62.99
+              ],
+              [
+                50.0,
+                66.3
+              ],
+              [
+                52.5,
+                69.62
+              ],
+              [
+                55.0,
+                72.93
+              ],
+              [
+                57.5,
+                76.25
+              ],
+              [
+                60.0,
+                79.57
+              ],
+              [
+                62.5,
+                82.88
+              ],
+              [
+                65.0,
+                86.2
+              ],
+              [
+                67.5,
+                89.51
+              ],
+              [
+                70.0,
+                92.83
+              ],
+              [
+                72.5,
+                96.14
+              ],
+              [
+                75.0,
+                99.46
+              ],
+              [
+                77.5,
+                102.77
+              ],
+              [
+                80.0,
+                106.09
+              ],
+              [
+                82.5,
+                109.4
+              ],
+              [
+                85.0,
+                112.72
+              ],
+              [
+                87.5,
+                116.03
+              ],
+              [
+                90.0,
+                119.35
+              ],
+              [
+                92.5,
+                122.66
+              ],
+              [
+                95.0,
+                125.98
+              ],
+              [
+                97.5,
+                129.29
+              ],
+              [
+                100.0,
+                132.61
+              ]
+            ]
+          },
+          {
+            "nome": {
+              "pt": "Empate com a margem mediana dos cenários",
+              "en": "Break-even at the median scenario margin",
+              "es": "Equilibrio con el margen mediano de los escenarios"
+            },
+            "papel": "alternativa",
+            "pontos": [
+              [
+                40.0,
+                39.48
+              ],
+              [
+                42.5,
+                41.95
+              ],
+              [
+                45.0,
+                44.41
+              ],
+              [
+                47.5,
+                46.88
+              ],
+              [
+                50.0,
+                49.35
+              ],
+              [
+                52.5,
+                51.82
+              ],
+              [
+                55.0,
+                54.28
+              ],
+              [
+                57.5,
+                56.75
+              ],
+              [
+                60.0,
+                59.22
+              ],
+              [
+                62.5,
+                61.69
+              ],
+              [
+                65.0,
+                64.15
+              ],
+              [
+                67.5,
+                66.62
+              ],
+              [
+                70.0,
+                69.09
+              ],
+              [
+                72.5,
+                71.56
+              ],
+              [
+                75.0,
+                74.02
+              ],
+              [
+                77.5,
+                76.49
+              ],
+              [
+                80.0,
+                78.96
+              ],
+              [
+                82.5,
+                81.43
+              ],
+              [
+                85.0,
+                83.89
+              ],
+              [
+                87.5,
+                86.36
+              ],
+              [
+                90.0,
+                88.83
+              ],
+              [
+                92.5,
+                91.3
+              ],
+              [
+                95.0,
+                93.76
+              ],
+              [
+                97.5,
+                96.23
+              ],
+              [
+                100.0,
+                98.7
+              ]
+            ]
+          },
+          {
+            "nome": {
+              "pt": "Piso da faixa de custo por clique",
+              "en": "Bottom of the cost-per-click range",
+              "es": "Piso del rango de costo por clic"
+            },
+            "papel": "neutro",
+            "pontos": [
+              [
+                40.0,
+                100.0
+              ],
+              [
+                42.5,
+                100.0
+              ],
+              [
+                45.0,
+                100.0
+              ],
+              [
+                47.5,
+                100.0
+              ],
+              [
+                50.0,
+                100.0
+              ],
+              [
+                52.5,
+                100.0
+              ],
+              [
+                55.0,
+                100.0
+              ],
+              [
+                57.5,
+                100.0
+              ],
+              [
+                60.0,
+                100.0
+              ],
+              [
+                62.5,
+                100.0
+              ],
+              [
+                65.0,
+                100.0
+              ],
+              [
+                67.5,
+                100.0
+              ],
+              [
+                70.0,
+                100.0
+              ],
+              [
+                72.5,
+                100.0
+              ],
+              [
+                75.0,
+                100.0
+              ],
+              [
+                77.5,
+                100.0
+              ],
+              [
+                80.0,
+                100.0
+              ],
+              [
+                82.5,
+                100.0
+              ],
+              [
+                85.0,
+                100.0
+              ],
+              [
+                87.5,
+                100.0
+              ],
+              [
+                90.0,
+                100.0
+              ],
+              [
+                92.5,
+                100.0
+              ],
+              [
+                95.0,
+                100.0
+              ],
+              [
+                97.5,
+                100.0
+              ],
+              [
+                100.0,
+                100.0
+              ]
+            ]
+          }
+        ]
       }
     ]
   }
